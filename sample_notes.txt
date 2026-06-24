@@ -1,0 +1,10 @@
+call w/ Maria Gutierrez @ Brightpath Logistics today
+
+- they run a fleet of ~120 delivery vans, currently using spreadsheets + a legacy tool from like 2015 for route planning, she said it's "held together with duct tape"
+- main pain: dispatchers spend 2-3 hrs every morning manually building routes, drivers complain routes are inefficient, fuel costs up ~18% yoy
+- Maria is ops director, NOT the final budget decision maker - that's the VP of ops, guy named Trevor. she said any deal over 25k needs his sign off
+- liked our live re-routing demo, asked specifically about how we handle same-day order changes (we do support it, i showed her)
+- objection: worried about driver adoption, last software rollout 2 yrs ago failed bc drivers hated the app. wants to know about our mobile UX + onboarding
+- ALSO mentioned they're talking to RouteIQ (competitor) but "not impressed so far"
+- next steps: i'm going to send her the driver onboarding case study + ROI one-pager. she'll loop in Trevor and try to set up a joint call. she said reach back out after the 4th of july holiday
+- she was pretty engaged, took notes, good energy
