@@ -71,6 +71,12 @@ cat sample_notes.txt | python followup.py
 python -m unittest discover -s tests
 ```
 
+Or run the full local validation script:
+
+```bash
+python scripts/validate.py
+```
+
 ## Portfolio Talking Points
 
 - Built a sales productivity workflow that reduces post-call admin work
