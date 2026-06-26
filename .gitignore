@@ -5,6 +5,8 @@ output/
 .env
 .env.*
 *.env
+.en
+.streamlit/secrets.toml
 
 # Python bytecode / caches
 __pycache__/

@@ -15,7 +15,7 @@ Usage:
     python3 followup.py --file notes.txt      # read notes from a file
     cat notes.txt | python3 followup.py       # or pipe them in
 
-Requires the ANTHROPIC_API_KEY environment variable to be set (it already is).
+Requires the ANTHROPIC_API_KEY environment variable to be set for AI generation.
 """
 
 import argparse

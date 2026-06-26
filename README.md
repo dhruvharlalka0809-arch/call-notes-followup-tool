@@ -1,72 +1,85 @@
-# Call Notes → Follow-Up Tool (v1)
+# Sales Follow-Up Automation Assistant
 
-A command-line tool that turns raw sales call notes (or a pasted transcript)
-into three things, right after the call ends:
+A Streamlit and CLI tool that turns messy sales call notes into a polished follow-up pack: call summary, email draft, and CRM note.
 
-1. **Call Summary** — the key points, needs, objections, and next steps
-2. **Follow-Up Email Draft** — ready to send with minimal editing
-3. **CRM Note** — structured fields you copy into your CRM
+The app is designed for account executives, SDRs, founders, and business development teams who lose time after calls turning raw notes into clean next steps.
 
-It prints the result to your terminal **and** saves a copy to
-`output/<date>_<prospect-name>.txt`.
+## What It Does
 
-## Setup
+- Converts raw call notes or transcript snippets into a structured follow-up pack
+- Produces a call summary, ready-to-edit email, and CRM note
+- Preserves a strict no-invention rule for names, numbers, dates, and commitments
+- Includes a deterministic preview mode so the public app works without an API key
+- Supports Claude AI generation when `ANTHROPIC_API_KEY` is configured
+- Saves downloadable follow-up files for handoff or CRM upload
 
-You need Python 3 and the Anthropic SDK:
+## Why This Project Matters
 
-```bash
-pip install anthropic
-```
+This is a practical sales-ops automation workflow, not a toy prompt demo. It shows business process thinking, LLM prompt design, Streamlit deployment, input validation, and a safer fallback path for public reviewers.
 
-Your Claude API key must be available as an environment variable:
+## Tech Stack
 
-```bash
-export ANTHROPIC_API_KEY="your-key-here"
-```
+- Python
+- Streamlit
+- Anthropic API, optional
+- Standard-library tests with `unittest`
 
-(It's already set in this environment.)
-
-## Usage
-
-Run it and paste your notes when prompted, then press **Ctrl-D** to finish:
+## Run Locally
 
 ```bash
-python3 followup.py
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run streamlit_app.py
 ```
 
-Optionally pass the prospect and company so they're always filled in:
+The app loads with sample notes by default, so it can be reviewed immediately.
+
+## Optional AI Setup
+
+Create a local `.env` file or add a Streamlit secret:
 
 ```bash
-python3 followup.py --name "Maria Gutierrez" --company "Brightpath Logistics"
+ANTHROPIC_API_KEY=your-api-key-here
 ```
 
-Read notes from a file instead of pasting:
+Do not commit real API keys. `.env`, `.env.*`, `.en`, and Streamlit secrets are ignored.
+
+## CLI Usage
+
+Paste notes interactively:
 
 ```bash
-python3 followup.py --file sample_notes.txt
+python followup.py --name "Maria Gutierrez" --company "Brightpath Logistics"
 ```
 
-Or pipe notes straight in:
+Use the included sample:
 
 ```bash
-cat sample_notes.txt | python3 followup.py
+python followup.py --file sample_notes.txt --name "Maria Gutierrez" --company "Brightpath Logistics"
 ```
 
-## Try it
-
-A realistic example is included:
+Pipe notes in:
 
 ```bash
-python3 followup.py --file sample_notes.txt --name "Maria Gutierrez" --company "Brightpath Logistics"
+cat sample_notes.txt | python followup.py
 ```
 
-## What v1 does NOT do
+## Validate
 
-No CRM integration, no audio transcription, no email sending, no stored
-history, no team features. It generates text you copy in manually.
+```bash
+python -m unittest discover -s tests
+```
 
-## The model
+## Portfolio Talking Points
 
-This tool uses Claude Sonnet 4.6 (`claude-sonnet-4-6`) — a strong balance of
-quality and cost. To switch models, edit the `MODEL` constant at the top of
-`followup.py`.
+- Built a sales productivity workflow that reduces post-call admin work
+- Designed a no-invention prompt for safer AI-generated sales communication
+- Added fallback preview output so the deployed app remains usable without private credentials
+- Added tests for prompt guardrails, file naming, and preview output structure
+
+## Author
+
+Dhruv Harlalka
+
+MBA Finance, Middlesex University Dubai
